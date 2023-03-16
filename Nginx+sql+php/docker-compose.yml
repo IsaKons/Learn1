@@ -1,0 +1,56 @@
+# Версия docker-compose
+version: '3'
+# Имя всего проекта
+name: nginx-php-sql
+# Список наших сервисов (контейнеров)
+services:
+    nginx:
+        # используем последний стабильный образ nginx
+        image: nginx:latest
+        # Задаём имя контейнера и указываем, что при сбое делать рестар.
+        container_name: nginx
+        restart: always
+        # маршрутизируем порты
+        ports:
+            - "80:80"
+            - "443:443"
+        # монтируем директории, слева директории на основной машине, справа - куда они монтируются в контейнере
+        volumes:
+            - ./hosts:/etc/nginx/conf.d
+            - ./www:/var/www
+            - ./logs/nginx:/var/log/nginx
+        # nginx должен общаться с php контейнером
+        links:
+            - php
+    php:
+        # у нас свой образ для PHP, указываем путь к нему и говорим что его надо собрать
+        build:
+            context: ./images/php
+            dockerfile: Dockerfile
+        # Задаём имя контейнера и указываем, что при сбое делать рестар.
+        container_name: php
+        restart: always
+        # этот образ будет общаться с mysql
+        links:
+            - mysql
+        # монтируем директорию с проектами
+        volumes:
+            - ./www:/var/www
+    mysql:
+        image: mysql
+        # Задаём имя контейнера и указываем, что при сбое делать рестар.
+        container_name: mysql
+        restart: always
+        ports:
+            - "3306:3306"
+        volumes:
+         - ./etc/mysql:/etc/mysql
+         - ./logs/mysql:/var/log/mysql
+         - ./mysql:/var/lib/mysql
+         - ./mysql-files:/var/lib/mysql-files
+         - ./data:/docker-entrypoint-initdb.d
+        # задаем пароль для root пользователя
+        # заливку дампа сайта и создание пользователя для доступа к базе снаружи будем делать позже в скрипте docker_load
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: sait
