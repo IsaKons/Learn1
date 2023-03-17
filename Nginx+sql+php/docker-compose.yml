@@ -1,7 +1,7 @@
 # Версия docker-compose
 version: '3'
 # Имя всего проекта
-name: nginx-php-sql
+# name: nginx-php-sql
 # Список наших сервисов (контейнеров)
 services:
     nginx:
