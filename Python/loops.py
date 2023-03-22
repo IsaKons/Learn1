@@ -1,4 +1,7 @@
 #for####
+def square_sum(numbers):
+    return sum(x ** 2 for x in numbers)
+
 for x in range(100, 10, -2):
     print("Number x = " + str(x))
 
@@ -13,6 +16,7 @@ for x in mynumber_list:
 all_cars = ['chrusler', 'dacia', 'bmw', 'KIA', 'vw', 'seat', 'skoda', 'lada', 'audi', 'ford', 'Chevrolett']
 german_cars = ['bmw', 'vw', 'audi']
 
+
 for xxxx in all_cars:
     if xxxx not in german_cars:
         print(xxxx + " is not German Car" + " index = " + str(all_cars.index(xxxx)))
@@ -25,6 +29,9 @@ while True:
         break
     
 #if####
+def bool_to_word(bool):
+    return "Yes" if bool else "No"
+
 age = 14
 if (age <= 4):
     print("You are baby!")

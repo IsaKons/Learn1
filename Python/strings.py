@@ -1,7 +1,6 @@
 import re
 
 name = " ..My big string.."
-
 print(name.title())
 print(name.upper())
 print(name.lower())
