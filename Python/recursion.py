@@ -38,4 +38,4 @@ def fibo(x):
      else:
          return fibo(x-1) + fibo(x-2)
 
-print(fibo(10))
+print(fibo(60))
