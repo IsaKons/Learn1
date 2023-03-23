@@ -1,24 +1,21 @@
+import sys
 cities = ['New York', 'Moscow', 'new dehli', 'Simferopol', 'Toronto']
+NewCities = []
 
-print(len(cities))
-print(cities[0])
-print(cities[-3])
-cities[2] = 'Tula'
-cities.append('Kursk')
-cities.insert(2, 'Feodosiya')
-del cities[-1]
-cities.remove('Tula')
-cities.reverse()
-print(cities[-4:-1])
+sys.argv                                # array of args provided
+print(len(cities))                      # lenght of array
+cities[2] = 'Tula'                      # set with exchange
+cities.append('Kursk')                  # add to the end
+cities.insert(2, 'Feodosiya')           # insert in position without exchange
+del cities[-1]                          # remove by ID
+cities.remove('Tula')                   # remove by name
+cities.reverse()                        # Reverse
+cities[::-1]                            # also reverse and can be done with STR!!
+print(cities[-4:-1])                    # From -4 includet to -1 not includet
+cities.pop(1)                           # Delete and show deleted(can be saved in var)
+NewCities.append(cities.copy())         # Create a COPY of array
 
-deleted_city = cities.pop()
-print("Deleted city is: " + deleted_city)
-print(cities)
-
-mynumber_list = list(range(0, 10))
-print("Max number is: " + str(max(mynumber_list)))
-print("Min number is: " + str(min(mynumber_list)))
-print("Sum of list is: " + str(sum(mynumber_list)))
+mynumber_list = list(range(0, 10))      # Creates array 0-10
 
 #dictionary
 enemy = {
@@ -26,20 +23,13 @@ enemy = {
           'loc_y':  50,
           'color':  'green',
           'health': 100,
-          'name': 'lol',
+          'name': 'Zed',
 }
-
-print("Location X = " + str(enemy['loc_x']))
-enemy['rank'] = 'Admiral'
-del enemy['rank']
-print(enemy.keys())
-print(enemy.values())
-
+#Create array of many copies of dictionary
 all_enemies = []
-
 for x in range(0, 10):
     all_enemies.append(enemy.copy())
-
+# How to change values in separate dictionary
 all_enemies[5]['health'] = 30
 all_enemies[8]['name'] = "Kozel"
 all_enemies[2]['loc_x'] += 10
