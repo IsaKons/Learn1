@@ -9,6 +9,12 @@ def linear_search(lst, search_item):
             start += 1
     return search_result
 
+### Another solution
+def LinearSearch(lys, element):
+    for i in range (len(lys)):
+        if lys[i] == element:
+            return i
+    return -1
 
 lst = [12, 34, 25, 15, 67, 23, 11, 5, 86]
 value = 11
@@ -17,3 +23,4 @@ if result:
     print("Элемент найден!")
 else:
     print("Элемент не найден!")
+    
