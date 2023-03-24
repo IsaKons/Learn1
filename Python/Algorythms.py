@@ -1,13 +1,3 @@
-#simple hi
-def privet(x):
-    if x == 0:
-        return
-    else:
-        print("Hello world")
-        privet(x-1)
-
-privet(10)
-
 #sum of all numbers in(like 5 = 1+2+3+4+5 = 15)
 def sum(x):
     if x == 0:
@@ -39,3 +29,14 @@ def fibo(x):
          return fibo(x-1) + fibo(x-2)
 
 print(fibo(60))
+
+#Evklid
+def gcd(a, b):
+    while a != 0 and b != 0:
+        if a > b:
+            a = a % b
+        else:
+            b = b % a
+    return a + b
+
+gcd(500,600)
