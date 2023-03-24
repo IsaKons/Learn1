@@ -9,7 +9,7 @@ def JumpSearch (lys, val):
         right = min(length - 1, left + jump)
         if lys[left] <= val and lys[right] >= val:
             break
-        left += jump;
+        left += jump
     if left >= length or lys[left] > val:
         return -1
     right = min(length - 1, right)

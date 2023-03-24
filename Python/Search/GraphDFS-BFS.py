@@ -1,10 +1,38 @@
+############# deep recursion from left
 def dfs(visited, graph, node):
     if node not in visited:
         print (node)
-        visited.add(node)
+        visited.append(node)
         for neighbor in graph[node]:
             dfs(visited, graph, neighbor)
+            
+############ deep iteractive from right, strnage, but cant find better..
+def dfs_iterative(graph, start):
+    stack, path = [start], []
+    while stack:
+        vertex = stack.pop()
+        if vertex in path:
+            continue
+        path.append(vertex)
+        for neighbor in graph[vertex]:
+            stack.append(neighbor)
+    return path
+  
+visited = []
+dict = {1: [2], 0: [1, 2], 2: [], 4: [5], 3: [4], 5: []}
+graph = {
+  'A' : ['B','C'],
+  'B' : ['D', 'E'],
+  'C' : [],
+  'D' : [],
+  'E' : []
+}
+node = 3
+dfs(visited, graph, 'A')
+dfs_iterative(graph, 'A')
+############
 
+############  wide
 def bfs(visited, graph, node):
     visited.append(node)
     queue.append(node)
@@ -18,9 +46,8 @@ def bfs(visited, graph, node):
                 visited.append(neighbor)
                 queue.append(neighbor)
             
-visited = [] # List to keep track of visited nodes.
-# queue is a list that is used to keep track of nodes currently in the queue.
-queue = []     #Initialize a queue
+visited = []
+queue = []
 
 graph = {
   'A' : ['B','C'],
@@ -29,7 +56,5 @@ graph = {
   'D' : [],
   'E' : []
 }
-
-dfs(visited, graph, 'A')
 
 bfs(visited, graph, 'A')
