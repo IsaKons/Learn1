@@ -18,7 +18,6 @@ myfile2.close()
 
 ######
 
-
 filename = "user_settings.txt"
 myfile = open(filename, mode='w', encoding='Latin-1')
 

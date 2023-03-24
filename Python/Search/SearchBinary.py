@@ -1,3 +1,4 @@
+# For sorted  Делит вечно пополам
 def binarysearch(mylist, iskat, start, stop):
     if start > stop:
         return False
