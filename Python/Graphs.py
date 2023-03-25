@@ -3,7 +3,7 @@ from pprint import pprint
 ## From pair array to graph
 def create_graph(pairs, empty_dict):
     for k, v in pairs:
-        empty_dict.setdefault(v, [])
+        empty_dict.setdefault(v, [])   # add here .append(k) for two side!!!!
         empty_dict.setdefault(k, []).append(v)
     return empty_dict
 
@@ -33,3 +33,36 @@ for key in test_keys:
         break
 
 print("Resultant dictionary is : " + str(res))
+
+
+##### For Visualization!!
+import networkx as nx
+import matplotlib.pyplot as plt
+
+class GraphVisualization:
+    def __init__(self):
+        self.visual = []
+    def addEdge(self, a, b):
+        temp = [a, b]
+        self.visual.append(temp)
+    def visualize(self):
+        G = nx.Graph()
+        G.add_edges_from(self.visual)
+        nx.draw_networkx(G)
+        plt.show()
+
+# Driver code
+G = GraphVisualization()
+G.addEdge(0, 2)
+G.addEdge(1, 2)
+G.addEdge(1, 3)
+G.addEdge(5, 3)
+G.addEdge(3, 4)
+G.addEdge(7, 7)
+G.visualize()
+
+#Example how to fill
+for x in graph:
+    if bool(graph[x]):
+        for y in graph[x]:
+            G.addEdge(x, y)

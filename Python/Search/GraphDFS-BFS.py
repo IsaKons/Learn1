@@ -17,7 +17,7 @@ def dfs_iterative(graph, start):
         for neighbor in graph[vertex]:
             stack.append(neighbor)
     return path
-  
+
 visited = []
 dict = {1: [2], 0: [1, 2], 2: [], 4: [5], 3: [4], 5: []}
 graph = {
@@ -28,7 +28,7 @@ graph = {
   'E' : []
 }
 node = 3
-dfs(visited, graph, 'A')
+dfs(visited, graph, 'I')
 dfs_iterative(graph, 'A')
 ############
 
@@ -57,4 +57,4 @@ graph = {
   'E' : []
 }
 
-bfs(visited, graph, 'A')
+bfs(visited, graph, 'I')
