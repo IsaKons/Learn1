@@ -17,7 +17,6 @@ create_graph(twopart, empty_dict)
 pprint(empty_dict)
 
 
-
 # conversion of lists to dictionary
 test_keys = ["Rash", "Kil", "Varsha"]
 test_values = [1, 4, 5]

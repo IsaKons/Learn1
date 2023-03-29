@@ -1,6 +1,13 @@
 import sys
+from collections import Counter
+
 cities = ['New York', 'Moscow', 'new dehli', 'Simferopol', 'Toronto']
 NewCities = []
+
+mynumber_list = list(range(0, 10))      # Creates array 0-10
+visited = [ [] for _ in range(10)]      # Empty array create
+graph = {key: [] for key in range(10)}  # empty dickt create
+
 
 sys.argv                                # array of args provided
 print(len(cities))                      # lenght of array
@@ -14,8 +21,9 @@ cities[::-1]                            # also reverse and can be done with STR!
 print(cities[-4:-1])                    # From -4 includet to -1 not includet
 cities.pop(1)                           # Delete and show deleted(can be saved in var)
 NewCities.append(cities.copy())         # Create a COPY of array
-
-mynumber_list = list(range(0, 10))      # Creates array 0-10
+x = Counter(cities)
+y = Counter(NewCities)                  # Combines similar elements
+z = x & y                               # общие элементы в словарях с наименьшим значением
 
 #dictionary
 enemy = {
